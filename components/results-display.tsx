@@ -18,18 +18,18 @@ export function ResultsDisplay({ state }: ResultsDisplayProps) {
   const isOverQuota = result.totalCoreHours > quotas.coreHours && quotas.coreHours > 0
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Main Usage Card */}
-      <div className="bg-gradient-to-br from-primary/20 to-accent/20 border border-accent/30 rounded-xl p-8">
+      <div className="bg-gradient-to-br from-primary/20 to-accent/20 border border-accent/30 rounded-lg sm:rounded-xl p-4 sm:p-8">
         <div className="text-center">
-          <p className="text-sm text-muted-foreground mb-2">Monthly Usage</p>
-          <div className="text-4xl font-bold mb-2">
+          <p className="text-xs sm:text-sm text-muted-foreground mb-2">Monthly Usage</p>
+          <div className="text-3xl sm:text-4xl font-bold mb-2">
             {result.quotaUsagePercent > 0
               ? Math.min(result.quotaUsagePercent, 100).toFixed(1)
               : '0'}
             %
           </div>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-xs sm:text-sm text-muted-foreground">
             {result.totalCoreHours.toFixed(1)} / {quotas.coreHours} core-hours
           </p>
         </div>
@@ -37,9 +37,9 @@ export function ResultsDisplay({ state }: ResultsDisplayProps) {
 
       {/* Progress Bar */}
       <div>
-        <div className="flex justify-between items-center mb-2">
-          <span className="text-xs font-medium">Usage Progress</span>
-          <span className="text-xs text-muted-foreground">
+        <div className="flex justify-between items-center mb-2 text-xs sm:text-sm">
+          <span className="font-medium">Usage Progress</span>
+          <span className="text-muted-foreground">
             {result.quotaRemaining > 0
               ? `${remainingAs2Core.toFixed(1)}h 2-core remaining`
               : 'Over quota'}
@@ -58,20 +58,20 @@ export function ResultsDisplay({ state }: ResultsDisplayProps) {
       </div>
 
       {/* Cost Breakdown */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
         {/* Compute Overage */}
-        <div className="bg-card border border-border rounded-lg p-5">
+        <div className="bg-card border border-border rounded-lg p-4 sm:p-5">
           <p className="text-xs text-muted-foreground mb-2">Compute Overage</p>
-          <div className="text-2xl font-bold mb-2">{formatCurrency(result.computeOverageCost)}</div>
+          <div className="text-xl sm:text-2xl font-bold mb-2">{formatCurrency(result.computeOverageCost)}</div>
           <p className="text-xs text-muted-foreground">
             {result.computeOverage.toFixed(1)} core-hours over limit
           </p>
         </div>
 
         {/* Storage Overage */}
-        <div className="bg-card border border-border rounded-lg p-5">
+        <div className="bg-card border border-border rounded-lg p-4 sm:p-5">
           <p className="text-xs text-muted-foreground mb-2">Storage Overage</p>
-          <div className="text-2xl font-bold mb-2">{formatCurrency(result.storageOverageCost)}</div>
+          <div className="text-xl sm:text-2xl font-bold mb-2">{formatCurrency(result.storageOverageCost)}</div>
           <p className="text-xs text-muted-foreground">
             {result.storageOverage.toFixed(2)} GB-months over limit
           </p>
@@ -80,22 +80,22 @@ export function ResultsDisplay({ state }: ResultsDisplayProps) {
 
       {/* Total Estimated Cost */}
       <div
-        className={`rounded-lg p-6 text-center border-2 ${
+        className={`rounded-lg p-4 sm:p-6 text-center border-2 ${
           result.totalEstimatedCost > 0
             ? 'bg-destructive/10 border-destructive/30'
             : 'bg-accent/10 border-accent/30'
         }`}
       >
-        <p className="text-sm text-muted-foreground mb-2">Estimated Monthly Cost</p>
-        <div className="text-4xl font-bold">{formatCurrency(result.totalEstimatedCost)}</div>
+        <p className="text-xs sm:text-sm text-muted-foreground mb-2">Estimated Monthly Cost</p>
+        <div className="text-3xl sm:text-4xl font-bold">{formatCurrency(result.totalEstimatedCost)}</div>
         {result.totalEstimatedCost === 0 && (
           <p className="text-xs text-accent mt-2">You are within your free quota!</p>
         )}
       </div>
 
       {/* Summary */}
-      <div className="bg-card border border-border rounded-lg p-5 space-y-3">
-        <h3 className="font-semibold text-sm">Summary</h3>
+      <div className="bg-card border border-border rounded-lg p-4 sm:p-5 space-y-3">
+        <h3 className="font-semibold text-xs sm:text-sm">Summary</h3>
         <div className="space-y-2 text-xs">
           <div className="flex justify-between">
             <span className="text-muted-foreground">2-Core Hours</span>
