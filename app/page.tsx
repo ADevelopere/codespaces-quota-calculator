@@ -49,24 +49,20 @@ export default function Home() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 auto-rows-max lg:auto-rows-fr">
           {/* Input Section */}
-          <div className="space-y-4 sm:space-y-6">
-            <div>
-              <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Configuration</h2>
-              <div className="bg-card border border-border rounded-lg sm:rounded-xl p-4 sm:p-6">
-                <InputSection state={state} onStateChange={setState} />
-              </div>
+          <div>
+            <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Configuration</h2>
+            <div className="bg-card border border-border rounded-lg sm:rounded-xl p-4 sm:p-6 h-full">
+              <InputSection state={state} onStateChange={setState} />
             </div>
           </div>
 
           {/* Results Section */}
-          <div className="space-y-4 sm:space-y-6">
-            <div>
-              <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Results</h2>
-              <div className="bg-card border border-border rounded-lg sm:rounded-xl p-4 sm:p-6">
-                <ResultsDisplay state={state} />
-              </div>
+          <div>
+            <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Results</h2>
+            <div className="bg-card border border-border rounded-lg sm:rounded-xl p-4 sm:p-6 h-full">
+              <ResultsDisplay state={state} />
             </div>
           </div>
         </div>
