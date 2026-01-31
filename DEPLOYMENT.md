@@ -9,11 +9,11 @@ This is a static Next.js application that calculates GitHub Codespaces usage and
 ### Option 1: Deploy to GitHub Pages (Recommended)
 
 1. **Push to your repository:**
-   ```bash
+   \`\`\`bash
    git add .
    git commit -m "Add Codespaces calculator"
    git push origin main
-   ```
+   \`\`\`
 
 2. **Enable GitHub Pages:**
    - Go to your repository Settings → Pages
@@ -40,14 +40,14 @@ This is a static Next.js application that calculates GitHub Codespaces usage and
 ### Option 3: Local Development
 
 1. **Install dependencies:**
-   ```bash
+   \`\`\`bash
    npm install
-   ```
+   \`\`\`
 
 2. **Run development server:**
-   ```bash
+   \`\`\`bash
    npm run dev
-   ```
+   \`\`\`
 
 3. **Open in browser:**
    - Visit `http://localhost:3000`
@@ -56,7 +56,7 @@ This is a static Next.js application that calculates GitHub Codespaces usage and
 
 If deploying to a subdirectory (e.g., `username.github.io/repo-name`), update `next.config.mjs`:
 
-```javascript
+\`\`\`javascript
 const nextConfig = {
   output: 'export',
   basePath: '/repo-name', // Add this line
@@ -67,7 +67,7 @@ const nextConfig = {
     unoptimized: true,
   },
 }
-```
+\`\`\`
 
 Then update the GitHub Actions workflow to use this configuration.
 
@@ -99,9 +99,9 @@ To update these values, edit `/lib/constants.ts` and `/app/page.tsx`.
 
 ## Building for Production
 
-```bash
+\`\`\`bash
 npm run build
-```
+\`\`\`
 
 The output is generated in the `out` directory, ready for static hosting.
 
